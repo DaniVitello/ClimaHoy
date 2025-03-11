@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/command";
 import { Button } from "@/components/ui/button";
 import { useFavorites } from "@/hooks/use-favorites";
+import { useTranslation } from "react-i18next";
 
 export function CitySearch() {
   const [open, setOpen] = useState(false);
@@ -42,6 +43,8 @@ export function CitySearch() {
     navigate(`/city/${name}?lat=${lat}&lon=${lon}`);
   };
 
+  const { t } = useTranslation();
+
   return (
     <>
       <Button
@@ -50,12 +53,12 @@ export function CitySearch() {
         onClick={() => setOpen(true)}
       >
         <Search className="mr-2 h-4 w-4" />
-        Search cities...
+        {t("searchCities.title")}
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <Command>
           <CommandInput
-            placeholder="Search cities..."
+            placeholder={t("searchCities.searchPlaceholder")}
             value={query}
             onValueChange={setQuery}
           />

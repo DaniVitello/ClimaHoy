@@ -9,6 +9,7 @@ import {
 } from "recharts";
 import { format } from "date-fns";
 import type { ForecastData } from "@/api/types";
+import { useTranslation } from "react-i18next";
 
 interface HourlyTemperatureProps {
   data: ForecastData;
@@ -21,7 +22,7 @@ interface ChartData {
 }
 
 export function HourlyTemperature({ data }: HourlyTemperatureProps) {
-  // Get today's forecast data and format for chart
+  const { t } = useTranslation();
 
   const chartData: ChartData[] = data.list
     .slice(0, 8) // Get next 24 hours (3-hour intervals)
@@ -34,7 +35,7 @@ export function HourlyTemperature({ data }: HourlyTemperatureProps) {
   return (
     <Card className="flex-1">
       <CardHeader>
-        <CardTitle>Today's Temperature</CardTitle>
+        <CardTitle>{t("todaysTemperature.title")}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="h-[200px] w-full">
@@ -62,7 +63,7 @@ export function HourlyTemperature({ data }: HourlyTemperatureProps) {
                         <div className="grid grid-cols-2 gap-2">
                           <div className="flex flex-col">
                             <span className="text-muted-foreground text-[0.70rem] uppercase">
-                              Temperature
+                              {t("todaysTemperature.temperature")}
                             </span>
                             <span className="font-bold">
                               {payload[0].value}°
@@ -70,7 +71,7 @@ export function HourlyTemperature({ data }: HourlyTemperatureProps) {
                           </div>
                           <div className="flex flex-col">
                             <span className="text-muted-foreground text-[0.70rem] uppercase">
-                              Feels Like
+                              {t("todaysTemperature.feelsLike")}
                             </span>
                             <span className="font-bold">
                               {payload[1].value}°

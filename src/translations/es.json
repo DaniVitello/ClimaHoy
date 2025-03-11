@@ -1,0 +1,30 @@
+{
+  "myLocation": {
+    "title": "Mi Ubicación",
+    "humidity": "Humedad",
+    "windSpeed": "Velocidad del Viento"
+  },
+
+  "todaysTemperature": {
+    "title": "Temperatura de Hoy",
+    "temperature": "Temperatura",
+    "feelsLike": "Sensación Térmica"
+  },
+
+  "weatherDetails": {
+    "title": "Detalles del Clima",
+    "sunrise": "Amanecer",
+    "sunset": "Atardecer",
+    "pressure": "Presión",
+    "windDirection": "Dirección del Viento"
+  },
+
+  "5dayForecast": {
+    "title": "Pronóstico a 5 Días"
+  },
+
+  "searchCities": {
+    "title": "Buscar",
+    "searchPlaceholder": "Buscar Ciudades..."
+  }
+}

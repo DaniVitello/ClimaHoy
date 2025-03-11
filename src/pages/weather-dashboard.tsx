@@ -13,8 +13,10 @@ import { WeatherForecast } from "../components/weather-forecast";
 import { HourlyTemperature } from "../components/hourly-temperature";
 import WeatherSkeleton from "../components/loading-skeleton";
 import { FavoriteCities } from "../components/favorite-cities";
+import { useTranslation } from "react-i18next";
 
 export function WeatherDashboard() {
+  const { t } = useTranslation();
   const {
     coordinates,
     error: locationError,
@@ -98,7 +100,9 @@ export function WeatherDashboard() {
     <div className="space-y-4">
       <FavoriteCities />
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold tracking-tight">My Location</h1>
+        <h1 className="text-xl font-bold tracking-tight">
+          {t("myLocation.title")}
+        </h1>
         <Button
           variant="outline"
           size="icon"

@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react";
 import { format } from "date-fns";
 import type { ForecastData } from "@/api/types";
+import { useTranslation } from "react-i18next";
 
 interface WeatherForecastProps {
   data: ForecastData;
@@ -22,6 +23,7 @@ interface DailyForecast {
 }
 
 export function WeatherForecast({ data }: WeatherForecastProps) {
+  const { t } = useTranslation();
   // Group forecast by day and get daily min/max
   const dailyForecasts = data.list.reduce(
     (acc, forecast) => {
@@ -61,7 +63,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>5-Day Forecast</CardTitle>
+        <CardTitle>{t("5dayForecast.title")}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">

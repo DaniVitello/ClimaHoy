@@ -2,12 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Sunrise, Sunset, Compass, Gauge } from "lucide-react";
 import { format } from "date-fns";
 import type { WeatherData } from "@/api/types";
+import { useTranslation } from "react-i18next";
 
 interface WeatherDetailsProps {
   data: WeatherData;
 }
 
 export function WeatherDetails({ data }: WeatherDetailsProps) {
+  const { t } = useTranslation();
   const { wind, main, sys } = data;
 
   // Format time using date-fns
@@ -53,7 +55,7 @@ export function WeatherDetails({ data }: WeatherDetailsProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Weather Details</CardTitle>
+        <CardTitle>{t("weatherDetails.title")}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid gap-6 sm:grid-cols-2">
